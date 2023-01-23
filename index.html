@@ -21,7 +21,7 @@
 
 					<div class="form-input">
 						<span>$</span>
-						<input type="number" name="salary" placeholder="Salary ($)" />
+						<input type="number" name="salary" placeholder="1000" min="1" required />
 					</div>
 				</div>
 
@@ -29,7 +29,7 @@
 					<p>How long will it take you to make the website?</p>
 
 					<div class="form-input">
-						<input type="number" name="days" />
+						<input type="number" name="days" placeholder="7" min="1" required />
 						<span>Days</span>
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 				</div>
 			</form>
 
-			<div id="price-output">???</div>
+			<div id="price-output" class="output">Your salary will appear here</div>
 		</main>
 
 		<script src="script.js"></script>

@@ -12,6 +12,6 @@ window.onload = (e) => {
 		console.log('Calculating price', salary, days)
 
 		const finalPrice = (salary / 365) * days
-		outputElem.textContent = finalPrice
+		outputElem.textContent = `$${finalPrice.toFixed(2)}`
 	})
 }

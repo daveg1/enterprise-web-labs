@@ -3,26 +3,44 @@
 	<head>
 		<title>Price Calculator</title>
 		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
 	</head>
 	<body>
-		<div>
-			<h1>How much to charge?</h1>
-			<p>
-				If you were a freelance web designer, how much should you charge for a website? Fill out the
-				form and find out!
-			</p>
-		</div>
+		<header>
+			<h1>What's Your Rate?</h1>
+			<p>If you were a freelance web designer, how much should you charge for a website?</p>
+			<p>Fill out the form and find out!</p>
+		</header>
 
-		<div>
-			<form id="budget" action="javascript:calculatePrice()">
-				<label for="salary">What annual salary seems suitable for you?</label>
-				<input type="text" id="salary" name="salary" /><br /><br />
-				<label for="days">How many days do you think it will take you to make the website?</label>
-				<input type="text" id="days" name="days" /><br /><br />
-				<input type="submit" value="Calculate your price!" /><br /><br />
-				<label id="finalPrice"> ??? </label>
+		<main>
+			<form id="budget-form">
+				<div class="form-group">
+					<p>What do you value yourself?</p>
+
+					<div class="form-input">
+						<span>$</span>
+						<input type="number" name="salary" placeholder="Salary ($)" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<p>How long will it take you to make the website?</p>
+
+					<div class="form-input">
+						<input type="number" name="days" />
+						<span>Days</span>
+					</div>
+				</div>
+
+				<div>
+					<button>Calculate your price!</button>
+				</div>
 			</form>
-		</div>
+
+			<div id="price-output">???</div>
+		</main>
 
 		<script src="script.js"></script>
 	</body>

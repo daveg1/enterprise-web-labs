@@ -1,3 +1,10 @@
+// Rounds to nearest 50
+function round(value) {
+	return Math.round(value / 50) * 50
+}
+
+const unit = '£'
+
 window.onload = (e) => {
 	const formElem = document.querySelector('#budget-form')
 	const outputElem = document.querySelector('#price-output')
@@ -12,6 +19,6 @@ window.onload = (e) => {
 		console.log('Calculating price', salary, days)
 
 		const finalPrice = (salary / 365) * days
-		outputElem.textContent = `$${finalPrice.toFixed(2)}`
+		outputElem.textContent = `${unit} ${round(finalPrice)}`
 	})
 }

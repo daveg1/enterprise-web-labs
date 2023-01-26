@@ -1,7 +1,4 @@
 // Rounds to nearest 50
-function round(value) {
-	return Math.round(value / 50) * 50
-}
 
 const unit = '£'
 
@@ -16,9 +13,25 @@ window.onload = (e) => {
 		const salary = form.get('salary')
 		const days = form.get('days')
 
-		console.log('Calculating price', salary, days)
+		fetch('/salary', {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ salary, days }),
+		}).then(async (res) => {
+			const data = await res.json()
+			let output = ''
 
-		const finalPrice = (salary / 365) * days
-		outputElem.textContent = `${unit} ${round(finalPrice)}`
+			if (res.status === 200) {
+				output = `${unit} ${data.finalPrice}`
+			} else if (res.status === 500) {
+				output = `Error: ${data.reason}`
+			} else {
+				output = 'Error: something bad happened'
+			}
+
+			outputElem.textContent = output
+		})
 	})
 }
